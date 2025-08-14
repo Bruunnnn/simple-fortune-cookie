@@ -12,14 +12,14 @@ jobs:
     container: golang:latest
     steps:
     -  name: Build Frontend
-    -  run: cd frontend/
+       run: cd frontend/
     -  run: go build frontend
   test:
     runs-on: ubuntu-latest
     container: golang:latest
     steps:
     -  name: Test Frontend
-    -  run: cd frontend/
+       run: cd frontend/
     -  run: go test frontend
     
     
