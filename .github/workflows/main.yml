@@ -69,7 +69,7 @@ jobs:
     
     - name: Build frontend image
       run: |
-        FRONTEND_IMAGE=ghcr.io/Bruunnnn/simple-fortune-cookie/frontend:latest
+        FRONTEND_IMAGE=ghcr.io/bruunnnn/simple-fortune-cookie/frontend:latest
         docker build -t $FRONTEND_IMAGE ./frontend
         docker push $FRONTEND_IMAGE
         echo "FRONTEND_IMAGE=$FRONTEND_IMAGE" >> $GITHUB_ENV
@@ -77,7 +77,7 @@ jobs:
     
     - name: Build backend image
       run: |
-        BACKEND_IMAGE=ghcr.io/Bruunnnn/simple-fortune-cookie/backend:latest
+        BACKEND_IMAGE=ghcr.io/bruunnnn/simple-fortune-cookie/backend:latest
         docker build -t $BACKEND_IMAGE ./backend
         docker push $BACKEND_IMAGE
         echo "BACKEND_IMAGE=$BACKEND_IMAGE" >> $GITHUB_ENV
