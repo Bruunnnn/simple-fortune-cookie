@@ -84,7 +84,7 @@ jobs:
         docker run -d -p 8080:8080 $FRONTEND_IMAGE
         docker run -d -p 9000:9000 $BACKEND_IMAGE
         
-  kUBECONFIG:
+  KUBECONFIG:
     runs-on: ubuntu-latest
     needs: docker-image
     steps:
