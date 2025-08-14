@@ -24,7 +24,6 @@ jobs:
         go build .
     -  name: Build Backend
        run: |
-         cd ..
          cd backend
          go build .
 
