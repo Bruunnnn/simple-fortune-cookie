@@ -84,3 +84,18 @@ jobs:
 
         docker run -d -p 8080:8080 $FRONTEND_IMAGE
         docker run -d -p 9000:9000 $BACKEND_IMAGE
+        
+  deploy:
+    runs-on: ubuntu-latest
+    needs: docker-image
+    steps:
+    - name: Set up kubeconfig
+      run: echo "${{ secrets.KUBECONFIG }}" | base64 -d > kubeconfig
+
+    - name: Deploy to Kubernetes
+      run: |
+        kubectl --kubeconfig kubeconfig set image deployment/frontend frontend=$FRONTEND_IMAGE
+        kubectl --kubeconfig kubeconfig set image deployment/backend backend=$BACKEND_IMAGE
+        kubectl --kubeconfig kubeconfig rollout status deployment/frontend
+        kubectl --kubeconfig kubeconfig rollout status deployment/backend
+
