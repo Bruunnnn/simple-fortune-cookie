@@ -19,7 +19,9 @@ jobs:
       with:
         fetch-depth: 0
     - name: Build Frontend
-      run: go build ./frontend
+      run: |
+        cd frontend
+        go build .
 
   test:
     runs-on: ubuntu-latest
@@ -29,4 +31,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Test Frontend
-        run: go test ./frontend
+        run: |
+          cd frontend
+          go test ./...
