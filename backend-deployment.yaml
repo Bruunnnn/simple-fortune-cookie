@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: ghcr.io/Bruunnnn/simple-fortune-cookie.git/backend:latest
+        image: ghcr.io/bruunnnn/simple-fortune-cookie/backend:latest
         resources:
           limits:
             memory: "128Mi"
