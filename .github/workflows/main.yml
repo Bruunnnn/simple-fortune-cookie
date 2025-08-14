@@ -2,24 +2,32 @@ name: Test Automation
 on: 
   push:
     branches:
-    -  main
+      - main
   pull_request:
     branches: 
-    -  main
+      - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
     container: golang:latest
     steps:
-    -  name: Build Frontend
-       run: cd frontend/
-    -  run: go build frontend
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Frontend
+        run: |
+          cd frontend
+          go build frontend
+
   test:
     runs-on: ubuntu-latest
     container: golang:latest
     steps:
-    -  name: Test Frontend
-       run: cd frontend/
-    -  run: go test frontend
-    
-    
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Test Frontend
+        run: |
+          cd frontend
+          go test 
