@@ -24,8 +24,8 @@ jobs:
         go build .
     -  name: Build Backend
        run: |
-         echo ls
-         cd ../backend/
+         cd ..
+         cd backend
          go build .
 
   test:
