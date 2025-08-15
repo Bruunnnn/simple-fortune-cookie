@@ -50,7 +50,7 @@ jobs:
       - name: Test application (run test)
         run: |
           docker compose -f "docker-compose.yaml" up -d
-          ./test.sh
+          bash ./test.sh
 
   docker-image:
     runs-on: ubuntu-latest
