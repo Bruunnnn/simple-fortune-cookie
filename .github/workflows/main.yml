@@ -45,6 +45,12 @@ jobs:
         run: |
           cd frontend
           go test ./...
+      - name: Test application (Setup)
+        uses: docker/setup-buildx-action@v2
+      - name: Test application (run test)
+        run: |
+          docker compose -f "docker-compose.yml" up -d
+          ./test.sh
 
   docker-image:
     runs-on: ubuntu-latest
