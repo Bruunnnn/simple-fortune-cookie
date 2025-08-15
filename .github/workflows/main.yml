@@ -92,10 +92,10 @@ jobs:
       run: echo "${{ secrets.KUBECONFIG }}" | base64 -d > kubeconfig
     - name: Deploy manifest
       run: |
-        kubectl --kubeconfig kubeconfig apply -f frontend-deployment.yaml
-        kubectl --kubeconfig kubeconfig apply -f backend-deployment.yaml
-        kubectl --kubeconfig kubeconfig apply -f frontend-service.yaml
-        kubectl --kubeconfig kubeconfig apply -f backend-service.yaml
+        kubectl --kubeconfig kubeconfig apply -f ./frontend-deployment.yaml
+        kubectl --kubeconfig kubeconfig apply -f ./backend-deployment.yaml
+        kubectl --kubeconfig kubeconfig apply -f ./frontend-service.yaml
+        kubectl --kubeconfig kubeconfig apply -f ./backend-service.yaml
       
 
     
