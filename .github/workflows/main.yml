@@ -51,6 +51,7 @@ jobs:
       - name: Test application (run test)
         run: |
           docker compose -f "docker-compose.yaml" up -d
+          sleep 10
           bash ./test.sh
 
 
